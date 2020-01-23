@@ -1,0 +1,26 @@
+﻿
+@model CakeShop.Models.Cake
+
+
+<div class="zoom col-lg-4 col-md-4 col-sm-5 imagcontainer">
+    <div id="boxshadow" class="card" style="" onclick="javascript: window.location.href = '/Product/ProductDetail/@Model.Id';">
+        <img class="card-img-top" src="@Model.ImageUrl" alt="@Model.Name">
+        <div class="card-body">
+            <h5 class="card-title d-inline float-left">
+                @Model.Name
+            </h5>
+            <br />
+            <p class="card-text d-inline float-right">@Model.Price.ToString() lei</p>
+            <p class="card-text d-inline float-right">@Model.Weigth gr.</p>
+            <br />
+            <form asp-controller="ShoppingCart"
+                  asp-action="AddToCart"
+                  asp-route-id="@Model.Id"
+                  method="post">
+
+                <button class="btn btn-primary buy-now-btn float-right">Cumpără acum</button>
+            </form>
+
+        </div>
+    </div>
+</div>

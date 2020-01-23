@@ -1,0 +1,35 @@
+﻿@model Ciocoholia.API.ViewModels.FeedbackViewModel
+@{
+    ViewData["Title"] = "Feedback";
+}
+<div class="row">
+
+    <div class="col-md-6 col-lg-6 offset-lg-3">
+        <h2>Feedback</h2>
+
+        <h6> Te rugăm îți spui părerea despre serviciile noastre!</h6>
+        <div>
+            <div asp-validation-summary="ModelOnly"></div>
+        </div>
+        <form asp-controller="feedback" asp-action="submit" method="post">
+
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content"></label>
+                <textarea asp-for="Content" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Content"></span>
+            </div>
+
+            <button class="btn btn-primary buy-now-btn">Trimite</button>
+
+        </form>
+    </div>
+</div>
+
+
+<br />
+<br />

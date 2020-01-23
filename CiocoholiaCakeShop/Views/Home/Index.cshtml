@@ -1,0 +1,54 @@
+﻿
+@{
+    @model IEnumerable<CakeShop.Models.Cake>;
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <partial>
+        @await Html.PartialAsync("carousel")
+    </partial>
+</div>
+<br />
+<div class="weekly-getting">
+    <h3> Avem cele mai bune prăjituri din oraș, doar pentru tine!</h3>
+</div>
+<br />
+
+<div class="row">
+    @if (Model != null)
+    {
+        @foreach (var cake in Model)
+        {
+            @await Html.PartialAsync("CakeView", cake);
+
+        }
+    }
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+
+
+

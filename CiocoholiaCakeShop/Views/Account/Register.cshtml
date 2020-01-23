@@ -1,0 +1,32 @@
+﻿@model CiocoholiaCakeShop.Models.Register
+
+<div class="row">
+<div class="col-md-6">
+    <h2>Creează-ți cont</h2>
+    <div asp-validation-summary="ModelOnly"></div>
+    <form asp-action="Register" asp-controller="Account" method="post">
+        <div class="form-group">
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" autocomplete="on" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPassword"></label>
+            <input asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword"></span>
+        </div>
+        <button type="submit" class="btn buy-now-btn">Înregistrează-te</button>
+    </form>
+
+</div>
+</div>

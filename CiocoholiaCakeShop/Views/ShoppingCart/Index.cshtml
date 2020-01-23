@@ -1,0 +1,75 @@
+﻿@{
+    @model CakeShop.API.ViewModels.ShoppingCartViewModel  
+    ViewData["Title"] = "Coș";
+}
+<h2>Coș de cumpărături <i class="fa fa-shopping-cart" aria-hidden="true"></i> </h2>
+
+
+@if (Model.ShoppingCartItems?.Count() <= 0)
+{
+    <br />
+    <h6> Upps! Coșul tau de cumpărături este gol!</h6>
+    return;
+}
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tort</th>
+            <th>Cantitate</th>
+            <th>Preț</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ShoppingCartItems)
+        {
+            <tr>
+                <td>@item.CakeName</td>
+                <td>
+                    <form class="d-inline align-middle" asp-action="RemoveFromShoppingCart"
+                          asp-controller="ShoppingCart"
+                          asp-route-id="@item.CakeId"
+                          method="post">
+                        <button class="btn fa fa-minus fa-small" aria-hidden="true"></button>
+                    </form>
+                    <span style="padding:1px 10px">@item.Quantity</span>
+                    <form class="d-inline align-middle" asp-action="AddToCart"
+                          asp-controller="ShoppingCart"
+                          asp-route-id="@item.CakeId"
+                          method="post">
+                        <button class="btn fa fa-plus fa-small" aria-hidden="true"></button>
+                    </form>
+
+                </td>
+                <td>@item.CakePrice</td>
+                <td>@item.ItemPrice</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total: </td>
+            <td>@Model.ShoppingCartTotal.ToString()</td>
+        </tr>
+        <tr style="border:0">
+            <td>
+                <form asp-action="RemoveAllCart" method="post">
+                    <button class="btn btn-link text-dark" asp-action="RemoveAllCart">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                        Renunță
+                    </button>
+                </form>
+
+            </td>
+            <td colspan="2"></td>
+            <td class="text-center">
+                <a class="btn buy-now-btn float-right" asp-action="index" asp-controller="order">
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                    Plasează comanda
+                </a>
+            </td>
+        </tr>
+    </tfoot>
+</table>

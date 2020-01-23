@@ -1,0 +1,59 @@
+﻿@model Ciocoholia.API.ViewModels.ManageCakeViewModel
+
+@{
+    ViewData["Title"] = "Adaugă produs";
+}
+<h2>Adaugă un produs</h2>
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-controller="Management" asp-action="AddCakeAction" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <label asp-for="Cake.Name"></label>
+                <input asp-for="Cake.Name" class="form-control" />
+                <span asp-validation-for="Cake.Name"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cake.CategoryId"></label>
+                <select class="custom-select" asp-for="Cake.CategoryId">
+                    <option value=""></option>
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="Cake.CategoryId"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cake.Description"></label>
+                <input asp-for="Cake.Description" class="form-control" />
+                <span asp-validation-for="Cake.Description"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cake.Price"></label>
+                <input asp-for="Cake.Price" class="form-control" />
+                <span asp-validation-for="Cake.Price"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cake.Weigth"></label>
+                <input asp-for="Cake.Weigth" class="form-control" />
+                <span asp-validation-for="Cake.Weigth"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cake.ImageUrl"></label>
+                <input asp-for="Cake.ImageUrl" class="form-control" />
+                <span asp-validation-for="Cake.ImageUrl"></span>
+            </div>
+            <div class="form-check form-group">
+                <input type="checkbox" class="form-check-input" asp-for="Cake.IsCakeOfTheWeek">
+                <label class="form-check-label" asp-for="Cake.IsCakeOfTheWeek"></label>
+                <span asp-validation-for="Cake.IsCakeOfTheWeek"></span>
+            </div>
+            <div class="form-group">
+                <button class="btn buy-now-btn">Salvează</button>
+            </div>
+        </form>
+    </div>
+</div>
+
