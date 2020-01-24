@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using CakeShop.API.ViewModels;
 using CakeShop.Models;
 using CakeShop.Repositories;
 using Ciocoholia.API.ViewModels;
-using Ciocoholia.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ciocoholia.API.Controllers
@@ -18,17 +17,47 @@ namespace Ciocoholia.API.Controllers
     public class AdministrationController : ControllerBase
     {
         private readonly IRepositoryWrapper _repositoryWrapper;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public AdministrationController(IRepositoryWrapper repositoryWrapper)
+        public AdministrationController(IRepositoryWrapper repositoryWrapper, UserManager<IdentityUser> userManager)
         {
             _repositoryWrapper = repositoryWrapper;
+            _userManager = userManager;
         }
 
         [Route("[action]")]
         [HttpGet]
-        public async Task<IEnumerable<Order>> AllOrders()
+        public async Task<IEnumerable<MyOrderViewModel>> AllOrders()
         {
-            return await _repositoryWrapper.Order.GetAllAsync();
+            //var users =  _userManager.Users.Select(x => x.Id).ToList();
+            var orders =  await _repositoryWrapper.Order.GetAllAsync();
+            List<MyOrderViewModel> allOrders = new List<MyOrderViewModel>();
+                foreach (var order in orders)
+                {
+                var user = await _userManager.FindByIdAsync(order.UserId);
+                    allOrders.Add(new MyOrderViewModel
+                    {
+                        OrderPlacedTime = order.OrderPlacedTime,
+                        OrderTotal = order.OrderTotal,
+                        OrderPlaceDetails = new OrderViewModel
+                        {
+                            AddressLine1 = order.AddressLine1,
+                            City = order.City,
+                            Email = user.Email,
+                            Name = user.UserName,
+                            PhoneNumber = order.PhoneNumber
+                        },
+                        CakeOrderInfos = _repositoryWrapper.OrderDetail.GetByCondition(x => x.OrderId == order.Id)
+                        .Result.Select(x => new MyCakeOrderInfo
+                        {
+                            Name = x.CakeName,
+                            Quantity = x.Quantity,
+                            Price = x.Price
+                        })
+                    });
+                }
+
+                return allOrders;
         }
 
 

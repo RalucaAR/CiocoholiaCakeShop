@@ -11,7 +11,6 @@ namespace Ciocoholia.API.Services
     public interface IOrderService
     {
         public Task<IEnumerable<MyOrderViewModel>> GetAllOrdersAsync(string userId);
-       // Task CreateOrderAsync(Order order);
         Task CreateOrderAsync(Order order);
         
     }

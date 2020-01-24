@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using CakeShop.Models;
 using CakeShop.Repositories;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ciocoholia.API.Controllers

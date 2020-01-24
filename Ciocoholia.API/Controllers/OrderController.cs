@@ -21,20 +21,12 @@ namespace Ciocoholia.API.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IShoppingCartService _shoppingCartService;
-        private readonly IMapper _mapper;
         private readonly IOrderService _orderService;
-        private readonly RepositoryContext _repositoryContext;
 
-        public OrderController(
-            IShoppingCartService shoppingCartService,
-            IMapper mapper,
-            IOrderService orderService,
-            RepositoryContext repositoryContext)
+        public OrderController(IShoppingCartService shoppingCartService, IOrderService orderService)
         {
             _shoppingCartService = shoppingCartService;
-            _mapper = mapper;
             _orderService = orderService;
-            _repositoryContext = repositoryContext;
         }
 
         [Route("[action]")]
@@ -55,7 +47,6 @@ namespace Ciocoholia.API.Controllers
             {
                 return NoContent();
             }
-            //var order = _mapper.Map<OrderViewModel, Order>(orderViewModel);
            
             await _orderService.CreateOrderAsync(order);
             await _shoppingCartService.ClearCartAsync();

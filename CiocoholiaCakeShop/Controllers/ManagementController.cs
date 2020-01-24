@@ -44,6 +44,7 @@ namespace CiocoholiaCakeShop.Controllers
             }
         }
 
+        [Authorize(Policy = "ManageCakes")]
         public IActionResult AddCake()
         {
             HttpClient client = new HttpClient();
@@ -66,6 +67,7 @@ namespace CiocoholiaCakeShop.Controllers
             }
         }
 
+        [Authorize(Policy = "ManageCakes")]
         public IActionResult AddCakeAction([FromForm]ManageCakeViewModel manageCakeViewModel)
         {
             var cake = new Cake
@@ -99,6 +101,7 @@ namespace CiocoholiaCakeShop.Controllers
             }
         }
 
+        [Authorize(Policy = "ManageCakes")]
         public IActionResult EditCake(int id)
         {
             HttpClient client = new HttpClient();
@@ -121,6 +124,7 @@ namespace CiocoholiaCakeShop.Controllers
             }
         }
 
+        [Authorize(Policy = "ManageCakes")]
         public IActionResult EditCakeAction(int id, [FromForm] ManageCakeViewModel manageCakeViewModel)
         {
             var cake = new Cake
@@ -155,7 +159,7 @@ namespace CiocoholiaCakeShop.Controllers
             }
         }
 
-        
+        [Authorize(Policy = "ManageCakes")]
         public IActionResult DeleteCake(int id)
         {
             HttpClient client = new HttpClient();
@@ -176,6 +180,7 @@ namespace CiocoholiaCakeShop.Controllers
             }
         }
 
+        [Authorize(Policy = "ManageOrders")]
         public IActionResult AllOrders()
         {
             HttpClient client = new HttpClient();
