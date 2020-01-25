@@ -125,11 +125,10 @@ namespace CiocoholiaCakeShop.Controllers
         }
 
         [Authorize(Policy = "ManageCakes")]
-        public IActionResult EditCakeAction(int id, [FromForm] ManageCakeViewModel manageCakeViewModel)
+        public IActionResult EditCakeAction([FromForm] ManageCakeViewModel manageCakeViewModel)
         {
             var cake = new Cake
             {
-                Id = id,
                 Name = manageCakeViewModel.Cake.Name,
                 Description = manageCakeViewModel.Cake.Description,
                 Price = manageCakeViewModel.Cake.Price,

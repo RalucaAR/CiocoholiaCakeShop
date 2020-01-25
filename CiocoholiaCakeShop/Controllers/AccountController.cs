@@ -37,18 +37,30 @@ namespace CiocoholiaCakeShop.Controllers
         public async Task<IActionResult> Login([FromForm] Login account)
         {
             IdentityUser user = null;
-
-            user = await _userManager.FindByNameAsync(account.UserName);
-
-            if (user != null)
+            if (account.Password != null)
             {
-                var result = await _signInManager.PasswordSignInAsync(user, account.Password, false, false);
-                if (result.Succeeded)
+                user = await _userManager.FindByNameAsync(account.UserName);
+
+                if (user != null)
                 {
-                    return Redirect("/");
+                    var result = await _signInManager.PasswordSignInAsync(user, account.Password, false, false);
+                    if (result.Succeeded)
+                    {
+                        return Redirect("/");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                        return View(account);
+                    }
                 }
             }
-            return Redirect("/Error/Auth");
+            else
+            {
+                ModelState.AddModelError(string.Empty, string.Empty);
+                return View(account);
+            }
+            return View(account);
         }
 
         [HttpPost]

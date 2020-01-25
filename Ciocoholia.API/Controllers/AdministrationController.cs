@@ -99,7 +99,7 @@ namespace Ciocoholia.API.Controllers
         {
             var cake = await _repositoryWrapper.Cake.GetByIdAsync(id);
             var category = await _repositoryWrapper.Category.GetAllAsync();
-
+            
             return new ManageCakeViewModel
             {
                 Categories = category,
@@ -115,7 +115,8 @@ namespace Ciocoholia.API.Controllers
             {
                 return Problem("Invalid action!");
             }
-
+           var cakeById =  _repositoryWrapper.Cake.AsNoTracking().FirstOrDefault(x => x.Name == cake.Name);
+            cake.Id = cakeById.Id;
             _repositoryWrapper.Cake.Update(cake);
             await _repositoryWrapper.SaveAsync();
 

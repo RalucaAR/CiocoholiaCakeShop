@@ -56,5 +56,10 @@ namespace CakeShop.Repositories
             EntityEntry<T> result = _repositoryContext.Set<T>().Remove(entity);
             return result.Entity;
         }
+
+        public IQueryable<T> AsNoTracking()
+        {
+            return _repositoryContext.Set<T>().AsNoTracking();
+        }
     }
 }
