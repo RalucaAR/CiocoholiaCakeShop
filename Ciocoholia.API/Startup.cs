@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using CakeShop.Models;
+using CakeShop.Repositories;
 using Ciocoholia.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,7 +34,7 @@ namespace Ciocoholia.API
             services.ConfigureDbContext(Configuration, "Ciocoholia.API");
             services.InjectRepositories();
 
-            services.AddControllers().AddNewtonsoftJson(x => 
+                services.AddControllers().AddNewtonsoftJson(x => 
                         x.SerializerSettings.ReferenceLoopHandling = 
                         Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddIdentity<IdentityUser, IdentityRole>()
