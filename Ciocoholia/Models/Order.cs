@@ -32,10 +32,5 @@ namespace Ciocoholia.Models
         public IdentityUser User { get; set; }
 
         public ICollection<OrderDetail> OrderDetails { get; set; }
-
-        //public Order()
-        //{
-        //    OrderDetails = new ICollection<OrderDetail>();
-        //}
     }
 }

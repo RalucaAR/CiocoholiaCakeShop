@@ -1,5 +1,5 @@
 ﻿<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Bun venit, @(User.Identity.Name ?? "Guest")!
+    Welcome, @(User.Identity.Name ?? "Guest")!
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
     @if (!User.Identity.IsAuthenticated)
@@ -9,22 +9,22 @@
     }
     else
     {
-        <a asp-action="MyOrderContent" asp-controller="Order" class="dropdown-item">Comenzile mele</a>
+        <a asp-action="MyOrderContent" asp-controller="Order" class="dropdown-item">My orders</a>
         <form method="post" asp-action="Logout" asp-controller="Account">
-            <button class="dropdown-item">Deconectare</button>
+            <button class="dropdown-item">Logout</button>
         </form>
 
         if (User.IsInRole("Admin"))
         {
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" asp-action="AllOrders" asp-controller="Management">Organizează Comenzi</a>
-            <a class="dropdown-item" asp-action="ManageCakes" asp-controller="Management">Organizează Torturi</a>
+            <a class="dropdown-item" asp-action="AllOrders" asp-controller="Management">Manage Orders</a>
+            <a class="dropdown-item" asp-action="ManageCakes" asp-controller="Management">Manage Cakes</a>
         }
 
         if (User.IsInRole("Manager"))
         {
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" asp-action="ManageCakes" asp-controller="Management">Organizează Torturi</a>
+            <a class="dropdown-item" asp-action="ManageCakes" asp-controller="Management">Manage Cakes</a>
         }
     }
 </div>

@@ -13,7 +13,7 @@ namespace Ciocoholia.API.ViewModels
         public string Email { get; set; }
 
         [StringLength(1500)]
-        [Display(Name = "Mesajul tău:")]
+        [Display(Name = "Your message:")]
         public string Content { get; set; }
     }
 }

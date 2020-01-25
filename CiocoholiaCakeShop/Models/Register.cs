@@ -17,13 +17,12 @@ namespace CiocoholiaCakeShop.Models
         public string Email { get; set; }
 
         [Required]
-        [Display(Name = "Parola")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Display(Name = "Confirmă Parola")]
+        [Display(Name = "Confirm Password")]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Parolele nu corespund!")]
+        [Compare("Password", ErrorMessage = "The passwords does not match!")]
         public string ConfirmPassword { get; set; }
     }
 }

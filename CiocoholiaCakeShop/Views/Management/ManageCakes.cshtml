@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<CakeShop.Models.Cake>
 @{
-    ViewData["Title"] = "Administrează produse";
+    ViewData["Title"] = "Manage products";
 }
-<h2>Administrează produse</h2>
+<h2>Manage products</h2>
 <br />
 <div>
-    <a asp-action="AddCake" class="btn buy-now-btn">Adaugă un tort nou</a>
+    <a asp-action="AddCake" class="btn buy-now-btn">Add a new cake</a>
 </div>
 <br />
 <table class="table ">
     <thead>
         <tr>
-            <th>Nume produs</th>
+            <th>Product name</th>
             <th></th>
         </tr>
     </thead>
@@ -21,9 +21,9 @@
             <tr id="cake-@cake.Id">
                 <td>@cake.Name</td>
                 <td>
-                    <a class="btn btn-link btn-no-effect" asp-controller="Management" asp-action="EditCake" asp-route-id="@cake.Id">Editează </a>
+                    <a class="btn btn-link btn-no-effect" asp-controller="Management" asp-action="EditCake" asp-route-id="@cake.Id">Edit </a>
                     |
-                    <a class="btn btn-link" asp-controller="Management" asp-action="DeleteCake" asp-route-id="@cake.Id">Șterge</a>
+                    <a class="btn btn-link" asp-controller="Management" asp-action="DeleteCake" asp-route-id="@cake.Id">Delete</a>
                 </td>
             </tr>
         }

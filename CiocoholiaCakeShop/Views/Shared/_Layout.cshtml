@@ -21,15 +21,15 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Produsele noastre
+                                Our Products
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-controller="Category" asp-action="Cake">Torturi</a>
-                                <a class="dropdown-item" asp-controller="Category" asp-action="PieceOfCake">Prăjituri</a>
+                                <a class="dropdown-item" asp-controller="Category" asp-action="Cake">Cakes</a>
+                                <a class="dropdown-item" asp-controller="Category" asp-action="PieceOfCake">Piece of Cakes</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="Contact">Contact</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="Contact">Contact us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Feedback" asp-action="Index">Feedback</a>
@@ -38,7 +38,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li>
                             <a class="nav-link" href="/shoppingcart">
-                                Coș
+                                Cart
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 @await Component.InvokeAsync("ShoppingCartSummary")
                             </a>
@@ -58,11 +58,11 @@
         </main>
     </div>
 
-    @*<footer class="border-top footer">
+    <footer class="border-top footer">
         <div class="container">
             &copy; 2020 - CiocoholiaCakeShop
         </div>
-    </footer>*@
+    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

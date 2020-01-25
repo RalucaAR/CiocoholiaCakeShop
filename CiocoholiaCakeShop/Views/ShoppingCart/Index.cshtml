@@ -2,13 +2,13 @@
     @model CakeShop.API.ViewModels.ShoppingCartViewModel  
     ViewData["Title"] = "Coș";
 }
-<h2>Coș de cumpărături <i class="fa fa-shopping-cart" aria-hidden="true"></i> </h2>
+<h2>Shopping Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i> </h2>
 
 
 @if (Model.ShoppingCartItems?.Count() <= 0)
 {
     <br />
-    <h6> Upps! Coșul tau de cumpărături este gol!</h6>
+    <h6> Upps! Your shopping cart is empty!</h6>
     return;
 }
 
@@ -16,9 +16,9 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Tort</th>
-            <th>Cantitate</th>
-            <th>Preț</th>
+            <th>Cake</th>
+            <th>Quantity</th>
+            <th>Price</th>
             <th>Subtotal</th>
         </tr>
     </thead>
@@ -58,7 +58,7 @@
                 <form asp-action="RemoveAllCart" method="post">
                     <button class="btn btn-link text-dark" asp-action="RemoveAllCart">
                         <i class="fa fa-times" aria-hidden="true"></i>
-                        Renunță
+                        Cancel
                     </button>
                 </form>
 
@@ -67,7 +67,7 @@
             <td class="text-center">
                 <a class="btn buy-now-btn float-right" asp-action="index" asp-controller="order">
                     <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                    Plasează comanda
+                    Checkout order
                 </a>
             </td>
         </tr>

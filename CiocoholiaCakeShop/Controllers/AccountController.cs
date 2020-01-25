@@ -70,7 +70,13 @@ namespace CiocoholiaCakeShop.Controllers
                 });
 
             }
-            return Redirect("/Error/Register");
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+
+            return View(register);
         }
 
         [HttpPost]
