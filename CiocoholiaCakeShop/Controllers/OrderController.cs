@@ -37,7 +37,9 @@ namespace CiocoholiaCakeShop.Controllers
                 AddressLine1 = orderViewModel.AddressLine1,
                 City = orderViewModel.City,
                 PhoneNumber = orderViewModel.PhoneNumber,
-                UserId = user.Id
+                UserId = user.Id,
+                OrderState = "Waiting"
+                
             };
 
             //read cookie from IHttpContextAccessor  

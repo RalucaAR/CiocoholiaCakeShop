@@ -14,6 +14,7 @@
             <th>Billing Address</th>
             <th>Order summary</th>
             <th>Total</th>
+            <th>Order state</th>
         </tr>
     </thead>
     <tbody>
@@ -62,6 +63,9 @@
                 </td>
                 <td>
                     @order.OrderTotal
+                </td>
+                <td>
+                    @order.OrderState
                 </td>
             </tr>
 

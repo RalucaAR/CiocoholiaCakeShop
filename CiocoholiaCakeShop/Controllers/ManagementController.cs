@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CakeShop.API.ViewModels;
 using CakeShop.Models;
 using Ciocoholia.API.ViewModels;
+using Ciocoholia.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -194,11 +195,52 @@ namespace CiocoholiaCakeShop.Controllers
             {
                 var order = response.Content.ReadAsStringAsync().Result;
                 var orderObj = JsonConvert.DeserializeObject<IEnumerable<MyOrderViewModel>>(order);
+
+                var newOrder = new MyOrderViewModel();
+                foreach (var orderr in orderObj)
+                {
+                    orderr.OrderStates = newOrder.OrderStates;
+                }
                 return View(orderObj);
             }
             else
             {
                 return View(null);
+            }
+        }
+
+        public class OrderTemp
+        {
+            public string orderState;
+        }
+
+        [Authorize(Policy = "ManageOrders")]
+        [HttpPost]
+        public IActionResult SetOrderState(int id, string orderState)
+        {
+            var order = new Order
+            {
+                Id = id,
+                OrderState = orderState
+            };
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://localhost:5001/api/Administration/SetOrderState/" + order);
+
+            // Add an Accept header for JSON format.
+            client.DefaultRequestHeaders.Accept.Add(
+            new MediaTypeWithQualityHeaderValue("application/json"));
+            var json = JsonConvert.SerializeObject(order, Formatting.Indented);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = client.PutAsync(client.BaseAddress,
+                content).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                return View("Submit");
+            }
+            else
+            {
+                return RedirectToAction("AllOrders", "Management");
             }
         }
     }

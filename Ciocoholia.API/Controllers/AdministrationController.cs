@@ -7,6 +7,7 @@ using CakeShop.API.ViewModels;
 using CakeShop.Models;
 using CakeShop.Repositories;
 using Ciocoholia.API.ViewModels;
+using Ciocoholia.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,6 +38,7 @@ namespace Ciocoholia.API.Controllers
                 var user = await _userManager.FindByIdAsync(order.UserId);
                     allOrders.Add(new MyOrderViewModel
                     {
+                        Id = order.Id,
                         OrderPlacedTime = order.OrderPlacedTime,
                         OrderTotal = order.OrderTotal,
                         OrderPlaceDetails = new OrderViewModel
@@ -53,7 +55,8 @@ namespace Ciocoholia.API.Controllers
                             Name = x.CakeName,
                             Quantity = x.Quantity,
                             Price = x.Price
-                        })
+                        }),
+                        OrderState = order.OrderState
                     });
                 }
 
@@ -131,6 +134,24 @@ namespace Ciocoholia.API.Controllers
             _repositoryWrapper.Cake.Delete(cake);
             await _repositoryWrapper.SaveAsync();
             return Ok();
+        }
+
+        [Route("[action]/{order}")]
+        [HttpPut]
+        public async Task<IActionResult> SetOrderState(Order order)
+        {
+            var orderById = _repositoryWrapper.Order.AsNoTracking().FirstOrDefault(x => x.Id == order.Id);
+            if (orderById != null)
+            {
+                orderById.OrderState = order.OrderState;
+                _repositoryWrapper.Order.Update(orderById);
+                await _repositoryWrapper.SaveAsync();
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
     }
 }

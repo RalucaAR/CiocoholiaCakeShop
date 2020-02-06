@@ -10,6 +10,7 @@ namespace Ciocoholia.API.ViewModels
     {
         [StringLength(255)]
         [Required(ErrorMessage = "Email is required")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [StringLength(1500)]

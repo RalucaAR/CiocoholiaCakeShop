@@ -26,6 +26,7 @@ namespace Ciocoholia.API.Services
                 .Include(e => e.OrderDetails)
                 .Select(e => new MyOrderViewModel
                 {
+                    Id = e.Id,
                     OrderPlacedTime = e.OrderPlacedTime,
                     OrderTotal = e.OrderTotal,
                     OrderPlaceDetails = new OrderViewModel
@@ -41,7 +42,8 @@ namespace Ciocoholia.API.Services
                         Name = o.CakeName,
                         Price = o.Price,
                         Quantity = o.Quantity
-                    })
+                    }),
+                    OrderState = e.OrderState
                 })
                 .ToListAsync();
         }

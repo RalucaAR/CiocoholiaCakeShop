@@ -28,6 +28,9 @@ namespace Ciocoholia.Models
         public decimal OrderTotal { get; set; }
 
         [Required]
+        public string OrderState { get; set; }
+
+        [Required]
         public string UserId { get; set; }
         public IdentityUser User { get; set; }
 
