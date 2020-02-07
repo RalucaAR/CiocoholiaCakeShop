@@ -1,4 +1,4 @@
-﻿@model Ciocoholia.API.ViewModels.ManageCakeViewModel
+﻿@model Ciocoholia.API.ViewModels.AddCakeViewModel
 
 @{
     ViewData["Title"] = "Add product";
@@ -7,52 +7,68 @@
 <br />
 <div class="row">
     <div class="col-md-6">
-        <form asp-controller="Management" asp-action="AddCakeAction" method="post">
+        <form asp-controller="Management" asp-action="AddCakeAction" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly"></div>
             <div class="form-group">
-                <label asp-for="Cake.Name"></label>
-                <input asp-for="Cake.Name" class="form-control" />
-                <span asp-validation-for="Cake.Name"></span>
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cake.CategoryId"></label>
-                <select class="custom-select" asp-for="Cake.CategoryId">
+                <label asp-for="CategoryId"></label>
+                <select class="custom-select" asp-for="CategoryId">
                     <option value=""></option>
                     @foreach (var category in Model.Categories)
                     {
                         <option value="@category.Id">@category.Name</option>
                     }
                 </select>
-                <span asp-validation-for="Cake.CategoryId"></span>
+                <span asp-validation-for="CategoryId"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cake.Description"></label>
-                <input asp-for="Cake.Description" class="form-control" />
-                <span asp-validation-for="Cake.Description"></span>
+                <label asp-for="Description"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cake.Price"></label>
-                <input asp-for="Cake.Price" class="form-control" />
-                <span asp-validation-for="Cake.Price"></span>
+                <label asp-for="Price"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cake.Weigth"></label>
-                <input asp-for="Cake.Weigth" class="form-control" />
-                <span asp-validation-for="Cake.Weigth"></span>
+                <label asp-for="Weigth"></label>
+                <input asp-for="Weigth" class="form-control" />
+                <span asp-validation-for="Weigth"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cake.ImageUrl"></label>
-                <input asp-for="Cake.ImageUrl" class="form-control" />
-                <span asp-validation-for="Cake.ImageUrl"></span>
+                <label asp-for="Image"></label>
+                <input asp-for="Image" type="file" class="form-control" />
+                @*<div>
+                    <input asp-for="Image" class="form-control custom-file-input">
+                    <label class="custom-file-label">Choose File...</label>
+                </div>*@
+                <span asp-validation-for="Image"></span>
             </div>
             <div class="form-check form-group">
-                <input type="checkbox" class="form-check-input" asp-for="Cake.IsCakeOfTheWeek">
-                <label class="form-check-label" asp-for="Cake.IsCakeOfTheWeek"></label>
-                <span asp-validation-for="Cake.IsCakeOfTheWeek"></span>
+                <input type="checkbox" class="form-check-input" asp-for="IsCakeOfTheWeek">
+                <label class="form-check-label" asp-for="IsCakeOfTheWeek"></label>
+                <span asp-validation-for="IsCakeOfTheWeek"></span>
             </div>
             <div class="form-group">
                 <button class="btn buy-now-btn">Save</button>
             </div>
+
+            @*@section Scripts {
+                <script>
+                    $(document).ready(function () {
+                        $('.custom-file-input').on("change", function () {
+                            var fileName = $(this).val().split("\\").pop();
+                            $(this).next('.custom-file-label').html(fileName);
+                        });
+                    });
+                </script>
+            }*@
+
         </form>
     </div>
 </div>

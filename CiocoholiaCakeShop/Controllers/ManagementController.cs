@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -10,6 +11,7 @@ using CakeShop.Models;
 using Ciocoholia.API.ViewModels;
 using Ciocoholia.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -59,7 +61,7 @@ namespace CiocoholiaCakeShop.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var cake = response.Content.ReadAsStringAsync().Result;
-                var cakeObj = JsonConvert.DeserializeObject<ManageCakeViewModel>(cake);
+                var cakeObj = JsonConvert.DeserializeObject<AddCakeViewModel>(cake);
                 return View(cakeObj);
             }
             else
@@ -69,18 +71,29 @@ namespace CiocoholiaCakeShop.Controllers
         }
 
         [Authorize(Policy = "ManageCakes")]
-        public IActionResult AddCakeAction([FromForm]ManageCakeViewModel manageCakeViewModel)
+        public IActionResult AddCakeAction([FromForm]AddCakeViewModel addCakeViewModel)
         {
+            string uniqueFileName = null;
+            string filePath = null;
+            if (addCakeViewModel.Image != null)
+            {
+                string uploadsFolder = "/img/";
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + addCakeViewModel.Image.FileName;
+                filePath = uploadsFolder + uniqueFileName;
+                string absoluteFilePah = "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\CiocoholiaCakeShop\\wwwroot\\img\\" + uniqueFileName;
+                addCakeViewModel.Image.CopyTo(new FileStream(absoluteFilePah, FileMode.Create));
+            };
+
+
             var cake = new Cake
             {
-                Name = manageCakeViewModel.Cake.Name,
-                Description = manageCakeViewModel.Cake.Description,
-                Price = manageCakeViewModel.Cake.Price,
-                Weigth = manageCakeViewModel.Cake.Weigth,
-                ImageUrl = manageCakeViewModel.Cake.ImageUrl,
-                Stock = manageCakeViewModel.Cake.Stock,
-                IsCakeOfTheWeek = manageCakeViewModel.Cake.IsCakeOfTheWeek,
-                CategoryId = manageCakeViewModel.Cake.CategoryId
+                Name = addCakeViewModel.Name,
+                Description = addCakeViewModel.Description,
+                Price = addCakeViewModel.Price,
+                Weigth = addCakeViewModel.Weigth,
+                ImageUrl = filePath,
+                IsCakeOfTheWeek = addCakeViewModel.IsCakeOfTheWeek,
+                CategoryId = addCakeViewModel.CategoryId
             };
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:5001/api/Administration/AddCake/" + cake);
@@ -89,11 +102,11 @@ namespace CiocoholiaCakeShop.Controllers
             client.DefaultRequestHeaders.Accept.Add(
             new MediaTypeWithQualityHeaderValue("application/json"));
             var json = JsonConvert.SerializeObject(cake);
-            HttpResponseMessage response = client.PostAsync(client.BaseAddress, 
-                new StringContent( json, Encoding.UTF8, "application/json")).Result;
+            HttpResponseMessage response = client.PostAsync(client.BaseAddress,
+                new StringContent(json, Encoding.UTF8, "application/json")).Result;
             if (response.IsSuccessStatusCode)
             {
-                
+
                 return View("Submit");
             }
             else

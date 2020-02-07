@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -8,6 +9,7 @@ using CakeShop.Models;
 using CakeShop.Repositories;
 using Ciocoholia.API.ViewModels;
 using Ciocoholia.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,7 +22,9 @@ namespace Ciocoholia.API.Controllers
         private readonly IRepositoryWrapper _repositoryWrapper;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public AdministrationController(IRepositoryWrapper repositoryWrapper, UserManager<IdentityUser> userManager)
+        public AdministrationController(
+            IRepositoryWrapper repositoryWrapper,
+            UserManager<IdentityUser> userManager)
         {
             _repositoryWrapper = repositoryWrapper;
             _userManager = userManager;
@@ -30,7 +34,6 @@ namespace Ciocoholia.API.Controllers
         [HttpGet]
         public async Task<IEnumerable<MyOrderViewModel>> AllOrders()
         {
-            //var users =  _userManager.Users.Select(x => x.Id).ToList();
             var orders =  await _repositoryWrapper.Order.GetAllAsync();
             List<MyOrderViewModel> allOrders = new List<MyOrderViewModel>();
                 foreach (var order in orders)
@@ -74,10 +77,10 @@ namespace Ciocoholia.API.Controllers
         
         [Route("[action]")]
         [HttpGet]
-        public async Task<ManageCakeViewModel> AddCake()
+        public async Task<AddCakeViewModel> AddCake()
         {
             var category = await _repositoryWrapper.Category.GetAllAsync();
-            return new ManageCakeViewModel
+            return new AddCakeViewModel
             {
                 Categories = category
             };
