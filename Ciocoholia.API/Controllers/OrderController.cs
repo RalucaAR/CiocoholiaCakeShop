@@ -30,7 +30,6 @@ namespace Ciocoholia.API.Controllers
         }
 
         [Route("[action]")]
-       // [HttpPost]
         public async Task<IEnumerable<ShoppingCartItems>> Checkout()
         {
             return await _shoppingCartService.GetShoppingCartItemsAsync();

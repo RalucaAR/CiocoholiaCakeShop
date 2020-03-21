@@ -19,6 +19,12 @@ namespace CiocoholiaCakeShop.Controllers
 {
     public class ManagementController : Controller
     {
+        private readonly IWebHostEnvironment _hostingEnvironment;
+
+        public ManagementController(IWebHostEnvironment hostingEnvironment)
+        {
+            _hostingEnvironment = hostingEnvironment;
+        }
         public IActionResult Index()
         {
             return View();
@@ -80,7 +86,9 @@ namespace CiocoholiaCakeShop.Controllers
                 string uploadsFolder = "/img/";
                 uniqueFileName = Guid.NewGuid().ToString() + "_" + addCakeViewModel.Image.FileName;
                 filePath = uploadsFolder + uniqueFileName;
+                string absFilePath = Path.Combine(_hostingEnvironment.WebRootPath, "img");
                 string absoluteFilePah = "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\CiocoholiaCakeShop\\wwwroot\\img\\" + uniqueFileName;
+               // string absoluteFilePah = absFilePath + uniqueFileName;
                 addCakeViewModel.Image.CopyTo(new FileStream(absoluteFilePah, FileMode.Create));
             };
 

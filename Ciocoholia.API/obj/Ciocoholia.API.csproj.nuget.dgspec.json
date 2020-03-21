@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj": {}
+    "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj": {}
   },
   "projects": {
-    "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj": {
+    "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj",
+        "projectUniqueName": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj",
         "projectName": "Ciocoholia.API",
-        "projectPath": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj",
+        "projectPath": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj",
         "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-        "outputPath": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\obj\\",
+        "outputPath": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj": {
-                "projectPath": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj"
+              "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj": {
+                "projectPath": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj"
               }
             }
           }
@@ -98,14 +98,14 @@
         }
       }
     },
-    "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj": {
+    "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj",
+        "projectUniqueName": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj",
         "projectName": "Ciocoholia",
-        "projectPath": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj",
+        "projectPath": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj",
         "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-        "outputPath": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\obj\\",
+        "outputPath": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -177,6 +177,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

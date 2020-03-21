@@ -32,7 +32,7 @@ namespace Ciocoholia.API
         public void ConfigureServices(IServiceCollection services)
         {
             
-            services.ConfigureDbContext(Configuration, "Ciocoholia.API");
+            services.ConfigureDbContext(Configuration, "Ciocoholia.API", "ConnectionStrings:connectionString");
             services.InjectRepositories();
 
                 services.AddControllers().AddNewtonsoftJson(x => 

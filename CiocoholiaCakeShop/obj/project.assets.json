@@ -5398,11 +5398,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\CiocoholiaCakeShop\\CiocoholiaCakeShop.csproj",
+      "projectUniqueName": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\CiocoholiaCakeShop\\CiocoholiaCakeShop.csproj",
       "projectName": "CiocoholiaCakeShop",
-      "projectPath": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\CiocoholiaCakeShop\\CiocoholiaCakeShop.csproj",
+      "projectPath": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\CiocoholiaCakeShop\\CiocoholiaCakeShop.csproj",
       "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-      "outputPath": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\CiocoholiaCakeShop\\obj\\",
+      "outputPath": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\CiocoholiaCakeShop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5421,11 +5421,11 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj": {
-              "projectPath": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj"
+            "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj": {
+              "projectPath": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj"
             },
-            "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj": {
-              "projectPath": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj"
+            "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj": {
+              "projectPath": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj"
             }
           }
         }

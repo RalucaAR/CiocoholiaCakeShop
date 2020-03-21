@@ -8,3 +8,13 @@ F:\FACULTATE\AN IV\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Cioco
 F:\FACULTATE\AN IV\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia\obj\Debug\netcoreapp3.0\Ciocoholia.dll
 F:\FACULTATE\AN IV\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia\obj\Debug\netcoreapp3.0\Ciocoholia.pdb
 F:\FACULTATE\AN IV\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia\obj\Debug\netcoreapp3.0\Ciocoholia.csprojAssemblyReference.cache
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia\bin\Debug\netcoreapp3.0\Ciocoholia.deps.json
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia\bin\Debug\netcoreapp3.0\Ciocoholia.runtimeconfig.json
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia\bin\Debug\netcoreapp3.0\Ciocoholia.runtimeconfig.dev.json
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia\bin\Debug\netcoreapp3.0\Ciocoholia.dll
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia\bin\Debug\netcoreapp3.0\Ciocoholia.pdb
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia\obj\Debug\netcoreapp3.0\Ciocoholia.csprojAssemblyReference.cache
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia\obj\Debug\netcoreapp3.0\Ciocoholia.AssemblyInfoInputs.cache
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia\obj\Debug\netcoreapp3.0\Ciocoholia.AssemblyInfo.cs
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia\obj\Debug\netcoreapp3.0\Ciocoholia.dll
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia\obj\Debug\netcoreapp3.0\Ciocoholia.pdb

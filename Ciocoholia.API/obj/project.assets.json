@@ -5370,11 +5370,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj",
+      "projectUniqueName": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj",
       "projectName": "Ciocoholia.API",
-      "projectPath": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj",
+      "projectPath": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\Ciocoholia.API.csproj",
       "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-      "outputPath": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\obj\\",
+      "outputPath": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5393,8 +5393,8 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj": {
-              "projectPath": "F:\\FACULTATE\\AN IV\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj"
+            "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj": {
+              "projectPath": "F:\\FACULTATE\\AN IV\\SEM I\\Dezvoltarea aplicatiilor WEB\\Proiect\\CiocoholiaCakeShop\\Ciocoholia\\Ciocoholia.csproj"
             }
           }
         }

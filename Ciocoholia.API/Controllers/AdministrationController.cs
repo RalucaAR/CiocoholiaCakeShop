@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
 using CakeShop.API.ViewModels;
 using CakeShop.Models;
 using CakeShop.Repositories;
 using Ciocoholia.API.ViewModels;
 using Ciocoholia.Models;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -92,7 +88,7 @@ namespace Ciocoholia.API.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return Problem("Invalid action!");
+                return BadRequest(ModelState);
             }
             await _repositoryWrapper.Cake.CreateAsync(cake);
             await _repositoryWrapper.SaveAsync();
@@ -117,16 +113,15 @@ namespace Ciocoholia.API.Controllers
         [HttpPut]
         public async Task<IActionResult> EditCake(Cake cake)
         {
-            if (!ModelState.IsValid)
-            {
-                return Problem("Invalid action!");
-            }
            var cakeById =  _repositoryWrapper.Cake.AsNoTracking().FirstOrDefault(x => x.Name == cake.Name);
-            cake.Id = cakeById.Id;
-            _repositoryWrapper.Cake.Update(cake);
-            await _repositoryWrapper.SaveAsync();
-
-            return Ok();
+            if (cakeById != null)
+            {
+                cake.Id = cakeById.Id;
+                _repositoryWrapper.Cake.Update(cake);
+                await _repositoryWrapper.SaveAsync();
+                return Ok();
+            }
+            return BadRequest(ModelState);
         }
 
         [Route("[action]/{id}")]

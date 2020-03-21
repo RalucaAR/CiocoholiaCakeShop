@@ -25,7 +25,6 @@ namespace Ciocoholia.API.Controllers
         }
 
         [Route("[action]/{id}")]
-       // [HttpPost]
         public async Task<IActionResult> AddToCart(int id)
         {
             var selectedCake = await _repositoryWrapper.Cake.GetByIdAsync(id);
@@ -35,7 +34,6 @@ namespace Ciocoholia.API.Controllers
             }
 
             var result = await _shoppingCart.AddToCartAsync(selectedCake);
-           // var shopping = await _shoppingCart.GetCartCountAndTotalAmmountAsync();
 
             return Ok();
         }
@@ -56,7 +54,6 @@ namespace Ciocoholia.API.Controllers
         }
 
         [Route("[action]")]
-        //[HttpPost]
         public async Task<IActionResult> RemoveAllCart()
         {
             await _shoppingCart.ClearCartAsync();

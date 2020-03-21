@@ -15,16 +15,14 @@ namespace Ciocoholia.API.Services
     public class ShoppingCartService : IShoppingCartService
     {
         private readonly RepositoryContext _context;
-       // private readonly IRepositoryWrapper _repositoryWrapper;
 
         public string Id { get; set; }
         public IEnumerable<ShoppingCartItems> ShoppingCartItems { get; set; }
         public IEnumerable<ShoppingCartItem> ShoppingCartObjects { get; set; }
 
-        private ShoppingCartService(RepositoryContext context/*, IRepositoryWrapper repositoryWrapper*/)
+        private ShoppingCartService(RepositoryContext context)
         {
             _context = context;
-            //_repositoryWrapper = repositoryWrapper;
         }
 
         public static ShoppingCartService GetCart(IServiceProvider services)

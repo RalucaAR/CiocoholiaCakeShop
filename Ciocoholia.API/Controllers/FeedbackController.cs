@@ -33,7 +33,7 @@ namespace Ciocoholia.API.Controllers
             }
             else
             {
-                return Problem();
+                return BadRequest();
             }
             
         }

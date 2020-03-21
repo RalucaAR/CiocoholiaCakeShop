@@ -16,9 +16,9 @@ namespace Ciocoholia
 {
     public static class ServiceExtensionMethods
     {
-        public static void ConfigureDbContext(this IServiceCollection services, IConfiguration config, string appName)
+        public static void ConfigureDbContext(this IServiceCollection services, IConfiguration config, string appName, string connectionAttribute)
         {
-            string connectionString = config["ConnectionStrings:connectionString"];
+            string connectionString = config[connectionAttribute];
             services.AddDbContext<RepositoryContext>(c => c.UseSqlServer(connectionString, 
                 b => b.MigrationsAssembly(appName)));
         }
