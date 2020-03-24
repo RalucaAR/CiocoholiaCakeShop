@@ -186,9 +186,8 @@ F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\CiocoholiaCakeShop\obj\Debug\netcoreapp3.0\CiocoholiaCakeShop.RazorCoreGenerate.cache
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\CiocoholiaCakeShop\obj\Debug\netcoreapp3.0\Razor\Views\Account\Login.cshtml.g.cs
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\CiocoholiaCakeShop\obj\Debug\netcoreapp3.0\Razor\Views\Account\Register.cshtml.g.cs
-F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\CiocoholiaCakeShop\obj\Debug\netcoreapp3.0\Razor\Views\Category\Cake.cshtml.g.cs
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\CiocoholiaCakeShop\obj\Debug\netcoreapp3.0\Razor\Views\Category\Category.cshtml.g.cs
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\CiocoholiaCakeShop\obj\Debug\netcoreapp3.0\Razor\Views\Category\Details.cshtml.g.cs
-F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\CiocoholiaCakeShop\obj\Debug\netcoreapp3.0\Razor\Views\Category\PieceOfCake.cshtml.g.cs
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\CiocoholiaCakeShop\obj\Debug\netcoreapp3.0\Razor\Views\Contact\Contact.cshtml.g.cs
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\CiocoholiaCakeShop\obj\Debug\netcoreapp3.0\Razor\Views\Feedback\Index.cshtml.g.cs
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\CiocoholiaCakeShop\obj\Debug\netcoreapp3.0\Razor\Views\Feedback\Submit.cshtml.g.cs

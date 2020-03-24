@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using CakeShop.Models;
 using Newtonsoft.Json;
+using Ciocoholia.Models;
 
 namespace CiocoholiaCakeShop.Controllers
 {
@@ -24,9 +25,9 @@ namespace CiocoholiaCakeShop.Controllers
 
         public IActionResult Index()
         {
-
+            var cakeOfTheWeek = true;
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("https://localhost:5001/api/Cake/CakeOfTheWeek");
+            client.BaseAddress = new Uri("https://localhost:5001/api/Cake/CakeOfTheWeek/" + cakeOfTheWeek);
 
             // Add an Accept header for JSON format.
             client.DefaultRequestHeaders.Accept.Add(

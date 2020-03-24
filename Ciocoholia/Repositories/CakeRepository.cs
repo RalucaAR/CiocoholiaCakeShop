@@ -1,5 +1,5 @@
 ﻿using CakeShop.Interfaces;
-using CakeShop.Models;
+using Ciocoholia.Models;
 using Ciocoholia;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -15,6 +15,21 @@ namespace CakeShop.Repositories
             : base(repositoryContext)
         {
 
+        }
+
+        public Task<List<Cake>> GetCakeByCategoryName(string name)
+        {
+            return GetByCondition(cake => cake.Category.Name == name);
+        }
+
+        public Task<List<Cake>> GetCakeByIsCakeOfTheWeek(bool cakeStatus)
+        {
+            return GetByCondition(cake => cake.IsCakeOfTheWeek == cakeStatus);
+        }
+
+        public Cake GetCakeByNameAsNoTracking(string name)
+        {
+            return AsNoTracking().FirstOrDefault(cake => cake.Name == name);
         }
     }
 }

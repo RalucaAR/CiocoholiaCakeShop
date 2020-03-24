@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CakeShop.Models
+namespace Ciocoholia.Models
 {
     [Table("Category")]
     public class Category : BaseEntity

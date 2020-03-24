@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CakeShop.Models
+namespace Ciocoholia.Models
 {
     [Table("Cake")]
     public class Cake : BaseEntity

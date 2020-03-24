@@ -2,6 +2,7 @@
 using CakeShop.Repositories;
 using Ciocoholia.API.Controllers;
 using Ciocoholia.API.ViewModels;
+using Ciocoholia.Models;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System;

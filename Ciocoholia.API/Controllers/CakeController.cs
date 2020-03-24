@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CakeShop.Models;
 using CakeShop.Repositories;
+using Ciocoholia.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ciocoholia.API.Controllers
@@ -19,31 +20,34 @@ namespace Ciocoholia.API.Controllers
             _repositoryWrapper = repositoryWrapper;
         }
 
-        [Route("[action]")]
+        [Route("[action]/{cakeStatus}")]
         [HttpGet]
-        public async Task<IEnumerable<Cake>> CakeOfTheWeek()
+        public async Task<IEnumerable<Cake>> CakeOfTheWeek(bool cakeStatus)
         {
-            var CakeOfTheWeek = await _repositoryWrapper.Cake.GetByCondition(cake => cake.IsCakeOfTheWeek == true);
-
-            return CakeOfTheWeek;
+            var CakeOfTheWeek = await _repositoryWrapper.Cake.GetCakeByIsCakeOfTheWeek(cakeStatus);
+            if (CakeOfTheWeek != null)
+            {
+                return CakeOfTheWeek;
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        [Route("[action]")]
+        [Route("[action]/{category}")]
         [HttpGet]
-        public async Task<IEnumerable<Cake>> PieceOfCake()
+        public async Task<IEnumerable<Cake>> Category(string category)
         {
-            var PieceOfCake = await _repositoryWrapper.Cake.GetByCondition(cake => cake.Category.Name == "PieceOfCake");
-
-            return PieceOfCake;
-        }
-
-        [Route("[action]")]
-        [HttpGet]
-        public async Task<IEnumerable<Cake>> Cake()
-        {
-            var Cake = await _repositoryWrapper.Cake.GetByCondition(cake => cake.Category.Name == "Cake");
-
-            return Cake;
+            var Cake = await _repositoryWrapper.Cake.GetCakeByCategoryName(category);
+            if (Cake != null)
+            {
+                return Cake;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         [Route("[action]/{id}")]

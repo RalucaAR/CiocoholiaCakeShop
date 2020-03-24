@@ -1,6 +1,6 @@
 ﻿using CakeShop.Interfaces;
 using CakeShop.IRepositories;
-using CakeShop.Models;
+using Ciocoholia.Models;
 using Ciocoholia;
 using Ciocoholia.IRepositories;
 using Ciocoholia.Repositories;

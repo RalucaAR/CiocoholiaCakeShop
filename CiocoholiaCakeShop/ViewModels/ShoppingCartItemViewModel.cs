@@ -1,4 +1,5 @@
 ﻿using CakeShop.Models;
+using Ciocoholia.Models;
 
 namespace CakeShop.ViewModel
 {

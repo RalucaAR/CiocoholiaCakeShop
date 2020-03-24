@@ -2,6 +2,7 @@
 using CakeShop.Models;
 using CakeShop.Repositories;
 using Ciocoholia.API.Controllers;
+using Ciocoholia.API.Services;
 using Ciocoholia.API.ViewModels;
 using Ciocoholia.Models;
 using Microsoft.AspNetCore.Identity;
@@ -16,31 +17,29 @@ namespace Ciocoholia.API.Tests
     public class AdministrationControllerTest
     {
         [Fact]
-        public void AllOrders_ReturnsListOrderViewModel_Success()
+        public void AllOrders_ReturnsIEnumerableMyOrderViewModel_Success()
         {
             // Arrange
-            var orders = new List<Order>
-            {
-                new Order
-                {
+            var orderVM = new List<MyOrderViewModel> {
+                new MyOrderViewModel { 
                     Id = 1,
-                    City = "Bucharest",
-                    OrderTotal = 10
+                    OrderTotal= 100
                 }
             };
             var mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
-            mockRepositoryWrapper.Setup(repo => repo.Order.GetAllAsync())
-                .Returns(Task.FromResult(orders));
-            var mockUserManager = new Mock<UserManager<IdentityUser>>();
-            //mockUserManager.Setup(repo => repo.);
-            var controller = new AdministrationController(mockRepositoryWrapper.Object, mockUserManager.Object);
+            var mockAdministrationService = new Mock<IAdministrationService>();
+            mockAdministrationService.Setup(service => service.GetAllUserOrders())
+                .Returns(Task.FromResult<IEnumerable<MyOrderViewModel>>(orderVM)) ;
+            var controller = new AdministrationController(mockRepositoryWrapper.Object, mockAdministrationService.Object);
 
             // Act
             var result = controller.AllOrders();
 
             // Assert
-            var viewResult = Assert.IsType<Task<IEnumerable<MyOrderViewModel>>>(result);
-
+            var ienumerableResult = Assert.IsType<Task<IEnumerable<MyOrderViewModel>>>(result);
+            var model = Assert.IsAssignableFrom<IEnumerable<MyOrderViewModel>>(
+                ienumerableResult.Result);
+            Assert.Single(model);
         }
 
         [Fact]
@@ -61,9 +60,8 @@ namespace Ciocoholia.API.Tests
             };
             var mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
             mockRepositoryWrapper.Setup(repo => repo.Cake.GetAllAsync()).Returns(Task.FromResult(cakeList));
-            var userStore = new Mock<IUserStore<IdentityUser>>();
-            var userManager = new UserManager<IdentityUser>(userStore.Object, null, null, null, null, null, null, null, null);
-            var controller = new AdministrationController(mockRepositoryWrapper.Object, userManager);
+            var mockAdministrationService = new Mock<IAdministrationService>();
+            var controller = new AdministrationController(mockRepositoryWrapper.Object, mockAdministrationService.Object);
 
             // Act
             var result = controller.ManageCakes();
@@ -84,10 +82,8 @@ namespace Ciocoholia.API.Tests
             };
             var mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
             mockRepositoryWrapper.Setup(repo => repo.Category.GetAllAsync()).Returns(Task.FromResult(categoryList));
-            var userStore = new Mock<IUserStore<IdentityUser>>();
-            var userManager = new UserManager<IdentityUser>(
-                userStore.Object, null, null, null, null, null, null, null, null);
-            var controller = new AdministrationController(mockRepositoryWrapper.Object, userManager);
+            var mockAdministrationService = new Mock<IAdministrationService>();
+            var controller = new AdministrationController(mockRepositoryWrapper.Object, mockAdministrationService.Object);
 
             // Act
             var result = controller.AddCake();
@@ -103,10 +99,8 @@ namespace Ciocoholia.API.Tests
         {
             // Arrange
             var mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
-            var userStore = new Mock<IUserStore<IdentityUser>>();
-            var userManager = new UserManager<IdentityUser>(
-                userStore.Object, null, null, null, null, null, null, null, null);
-            var controller = new AdministrationController(mockRepositoryWrapper.Object, userManager);
+            var mockAdministrationService = new Mock<IAdministrationService>();
+            var controller = new AdministrationController(mockRepositoryWrapper.Object, mockAdministrationService.Object);
             controller.ModelState.AddModelError("Name", "Too long");
             var newCake = new Cake
             {
@@ -143,10 +137,8 @@ namespace Ciocoholia.API.Tests
             };
             var mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
             mockRepositoryWrapper.Setup(repo => repo.Cake.GetByIdAsync(cake.Id));
-            var userStore = new Mock<IUserStore<IdentityUser>>();
-            var userManager = new UserManager<IdentityUser>(
-                userStore.Object, null, null, null, null, null, null, null, null);
-            var controller = new AdministrationController(mockRepositoryWrapper.Object, userManager);
+            var mockAdministrationService = new Mock<IAdministrationService>();
+            var controller = new AdministrationController(mockRepositoryWrapper.Object, mockAdministrationService.Object);
 
             //Act
             var result = controller.AddCake(cake);
@@ -172,10 +164,8 @@ namespace Ciocoholia.API.Tests
             var mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
             mockRepositoryWrapper.Setup(repo => repo.Cake.GetByIdAsync(cake.Id));
             mockRepositoryWrapper.Setup(repo => repo.Category.GetAllAsync());
-            var userStore = new Mock<IUserStore<IdentityUser>>();
-            var userManager = new UserManager<IdentityUser>(
-                userStore.Object, null, null, null, null, null, null, null, null);
-            var controller = new AdministrationController(mockRepositoryWrapper.Object, userManager);
+            var mockAdministrationService = new Mock<IAdministrationService>();
+            var controller = new AdministrationController(mockRepositoryWrapper.Object, mockAdministrationService.Object);
 
             //Act
             var result = controller.EditCake(cake.Id);
@@ -199,11 +189,9 @@ namespace Ciocoholia.API.Tests
                 ImageUrl = "/img/img1.jpg"
             };
             var mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
-            mockRepositoryWrapper.Setup(repo => repo.Cake.GetByIdAsync(newCake.Id));
-            var userStore = new Mock<IUserStore<IdentityUser>>();
-            var userManager = new UserManager<IdentityUser>(
-                userStore.Object, null, null, null, null, null, null, null, null);
-            var controller = new AdministrationController(mockRepositoryWrapper.Object, userManager);
+            mockRepositoryWrapper.Setup(repo => repo.Cake.GetCakeByNameAsNoTracking(newCake.Name));
+            var mockAdministrationService = new Mock<IAdministrationService>();
+            var controller = new AdministrationController(mockRepositoryWrapper.Object, mockAdministrationService.Object);
             controller.ModelState.AddModelError("Price", "Required!");
            
 
@@ -231,10 +219,8 @@ namespace Ciocoholia.API.Tests
             var mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
             mockRepositoryWrapper.Setup(repo => repo.Cake.GetByIdAsync(cake.Id));
             mockRepositoryWrapper.Setup(repo => repo.Cake.Update(cake));
-            var userStore = new Mock<IUserStore<IdentityUser>>();
-            var userManager = new UserManager<IdentityUser>(
-                userStore.Object, null, null, null, null, null, null, null, null);
-            var controller = new AdministrationController(mockRepositoryWrapper.Object, userManager);
+            var mockAdministrationService = new Mock<IAdministrationService>();
+            var controller = new AdministrationController(mockRepositoryWrapper.Object, mockAdministrationService.Object);
 
             //Act
             var result = controller.EditCake(cake);
@@ -265,10 +251,8 @@ namespace Ciocoholia.API.Tests
             var mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
             mockRepositoryWrapper.Setup(repo => repo.Cake.GetByIdAsync(cake.Id));
             mockRepositoryWrapper.Setup(repo => repo.Cake.Delete(cake));
-            var userStore = new Mock<IUserStore<IdentityUser>>();
-            var userManager = new UserManager<IdentityUser>(
-                userStore.Object, null, null, null, null, null, null, null, null);
-            var controller = new AdministrationController(mockRepositoryWrapper.Object, userManager);
+            var mockAdministrationService = new Mock<IAdministrationService>();
+            var controller = new AdministrationController(mockRepositoryWrapper.Object, mockAdministrationService.Object);
 
             //Act
             var result = controller.DeleteCake(cake.Id);
@@ -289,12 +273,9 @@ namespace Ciocoholia.API.Tests
                 OrderTotal = 100
             };
             var mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
-            mockRepositoryWrapper.Setup(repo => repo.Order.GetByIdAsync(order.Id));
-            var userStore = new Mock<IUserStore<IdentityUser>>();
-            var userManager = new UserManager<IdentityUser>(
-                userStore.Object, null, null, null, null, null, null, null, null);
-            var controller = new AdministrationController(mockRepositoryWrapper.Object, userManager);
-            controller.ModelState.AddModelError("Address", "Required!");
+            mockRepositoryWrapper.Setup(repo => repo.Order.GetOrderByIdAsNoTraking(order.Id));
+            var mockAdministrationService = new Mock<IAdministrationService>();
+            var controller = new AdministrationController(mockRepositoryWrapper.Object, mockAdministrationService.Object);
 
             //Act
             var result = controller.SetOrderState(order);
@@ -317,10 +298,8 @@ namespace Ciocoholia.API.Tests
             var mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
             mockRepositoryWrapper.Setup(repo => repo.Order.GetByIdAsync(order.Id));
             mockRepositoryWrapper.Setup(repo => repo.Order.Update(order));
-            var userStore = new Mock<IUserStore<IdentityUser>>();
-            var userManager = new UserManager<IdentityUser>(
-                userStore.Object, null, null, null, null, null, null, null, null);
-            var controller = new AdministrationController(mockRepositoryWrapper.Object, userManager);
+            var mockAdministrationService = new Mock<IAdministrationService>();
+            var controller = new AdministrationController(mockRepositoryWrapper.Object, mockAdministrationService.Object);
 
             //Act
             var result = controller.SetOrderState(order);

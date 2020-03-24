@@ -1,4 +1,4 @@
-﻿using CakeShop.Models;
+﻿using Ciocoholia.Models;
 using CakeShop.Repositories;
 
 namespace CakeShop.IRepositories

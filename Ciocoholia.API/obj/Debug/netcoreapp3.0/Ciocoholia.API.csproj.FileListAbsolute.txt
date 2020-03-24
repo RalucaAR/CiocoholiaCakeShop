@@ -73,6 +73,11 @@ F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\bin\Debug\netcoreapp3.0\Ciocoholia.API.deps.json
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\bin\Debug\netcoreapp3.0\Ciocoholia.API.runtimeconfig.json
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\bin\Debug\netcoreapp3.0\Ciocoholia.API.runtimeconfig.dev.json
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\staticwebassets\Ciocoholia.API.StaticWebAssets.Manifest.cache
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\staticwebassets\Ciocoholia.API.StaticWebAssets.xml
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\Ciocoholia.API.AssemblyInfoInputs.cache
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\Ciocoholia.API.AssemblyInfo.cs
+F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\Ciocoholia.API.RazorTargetAssemblyInfo.cache
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\bin\Debug\netcoreapp3.0\Ciocoholia.API.dll
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\bin\Debug\netcoreapp3.0\Ciocoholia.API.pdb
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\bin\Debug\netcoreapp3.0\AutoMapper.dll
@@ -125,12 +130,7 @@ F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\bin\Debug\netcoreapp3.0\Ciocoholia.dll
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\bin\Debug\netcoreapp3.0\Ciocoholia.pdb
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\Ciocoholia.API.csprojAssemblyReference.cache
-F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\staticwebassets\Ciocoholia.API.StaticWebAssets.Manifest.cache
-F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\staticwebassets\Ciocoholia.API.StaticWebAssets.xml
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\Ciocoholia.API.MvcApplicationPartsAssemblyInfo.cache
-F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\Ciocoholia.API.AssemblyInfoInputs.cache
-F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\Ciocoholia.API.AssemblyInfo.cs
-F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\Ciocoholia.API.RazorTargetAssemblyInfo.cache
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\Ciocoholia.API.csproj.CopyComplete
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\Ciocoholia.API.dll
 F:\FACULTATE\AN IV\SEM I\Dezvoltarea aplicatiilor WEB\Proiect\CiocoholiaCakeShop\Ciocoholia.API\obj\Debug\netcoreapp3.0\Ciocoholia.API.pdb

@@ -1,7 +1,6 @@
-﻿using CakeShop.Models;
+﻿using Ciocoholia.Models;
 using CakeShop.Repositories;
 using Ciocoholia.IRepositories;
-using Ciocoholia.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

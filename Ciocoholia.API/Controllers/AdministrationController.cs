@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using CakeShop.API.ViewModels;
 using CakeShop.Models;
 using CakeShop.Repositories;
+using Ciocoholia.API.Services;
 using Ciocoholia.API.ViewModels;
 using Ciocoholia.Models;
 using Microsoft.AspNetCore.Identity;
@@ -16,50 +17,21 @@ namespace Ciocoholia.API.Controllers
     public class AdministrationController : ControllerBase
     {
         private readonly IRepositoryWrapper _repositoryWrapper;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly IAdministrationService _administrationService;
 
         public AdministrationController(
             IRepositoryWrapper repositoryWrapper,
-            UserManager<IdentityUser> userManager)
+            IAdministrationService administrationService)
         {
             _repositoryWrapper = repositoryWrapper;
-            _userManager = userManager;
+            _administrationService = administrationService;
         }
 
         [Route("[action]")]
         [HttpGet]
         public async Task<IEnumerable<MyOrderViewModel>> AllOrders()
         {
-            var orders =  await _repositoryWrapper.Order.GetAllAsync();
-            List<MyOrderViewModel> allOrders = new List<MyOrderViewModel>();
-                foreach (var order in orders)
-                {
-                var user = await _userManager.FindByIdAsync(order.UserId);
-                    allOrders.Add(new MyOrderViewModel
-                    {
-                        Id = order.Id,
-                        OrderPlacedTime = order.OrderPlacedTime,
-                        OrderTotal = order.OrderTotal,
-                        OrderPlaceDetails = new OrderViewModel
-                        {
-                            AddressLine1 = order.AddressLine1,
-                            City = order.City,
-                            Email = user.Email,
-                            Name = user.UserName,
-                            PhoneNumber = order.PhoneNumber
-                        },
-                        CakeOrderInfos = _repositoryWrapper.OrderDetail.GetByCondition(x => x.OrderId == order.Id)
-                        .Result.Select(x => new MyCakeOrderInfo
-                        {
-                            Name = x.CakeName,
-                            Quantity = x.Quantity,
-                            Price = x.Price
-                        }),
-                        OrderState = order.OrderState
-                    });
-                }
-
-                return allOrders;
+            return await _administrationService.GetAllUserOrders();
         }
 
 
@@ -113,7 +85,7 @@ namespace Ciocoholia.API.Controllers
         [HttpPut]
         public async Task<IActionResult> EditCake(Cake cake)
         {
-           var cakeById =  _repositoryWrapper.Cake.AsNoTracking().FirstOrDefault(x => x.Name == cake.Name);
+           var cakeById =  _repositoryWrapper.Cake.GetCakeByNameAsNoTracking(cake.Name);
             if (cakeById != null)
             {
                 cake.Id = cakeById.Id;
@@ -121,7 +93,10 @@ namespace Ciocoholia.API.Controllers
                 await _repositoryWrapper.SaveAsync();
                 return Ok();
             }
-            return BadRequest(ModelState);
+            else
+            {
+                return BadRequest(ModelState);
+            }
         }
 
         [Route("[action]/{id}")]
@@ -138,7 +113,7 @@ namespace Ciocoholia.API.Controllers
         [HttpPut]
         public async Task<IActionResult> SetOrderState(Order order)
         {
-            var orderById = _repositoryWrapper.Order.AsNoTracking().FirstOrDefault(x => x.Id == order.Id);
+            var orderById = _repositoryWrapper.Order.GetOrderByIdAsNoTraking(order.Id);
             if (orderById != null)
             {
                 orderById.OrderState = order.OrderState;

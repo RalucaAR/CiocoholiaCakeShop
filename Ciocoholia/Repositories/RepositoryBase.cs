@@ -1,6 +1,5 @@
-﻿using CakeShop.Models;
+﻿using Ciocoholia.Models;
 using Ciocoholia;
-using Ciocoholia.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;

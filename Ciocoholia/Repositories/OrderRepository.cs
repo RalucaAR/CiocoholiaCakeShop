@@ -1,11 +1,11 @@
-﻿using CakeShop.Models;
+﻿using Ciocoholia.Models;
 using CakeShop.Repositories;
 using Ciocoholia.IRepositories;
-using Ciocoholia.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace Ciocoholia.Repositories
 {
@@ -17,6 +17,10 @@ namespace Ciocoholia.Repositories
 
         }
 
-        
+        public Order GetOrderByIdAsNoTraking(int id)
+        {
+            return AsNoTracking().FirstOrDefault(x => x.Id == id);
+        }
+
     }
 }

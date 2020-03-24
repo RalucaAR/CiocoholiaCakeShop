@@ -1,6 +1,5 @@
 ﻿using CakeShop.Interfaces;
 using CakeShop.IRepositories;
-using CakeShop.Models;
 using CakeShop.Repositories;
 using Ciocoholia.IRepositories;
 using Microsoft.EntityFrameworkCore;
